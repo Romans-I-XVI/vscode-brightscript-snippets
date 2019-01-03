@@ -1,0 +1,41 @@
+{
+	// ifAppInfo
+	"ifAppInfo_GetID": {
+		"prefix": "GetID() :: ifAppInfo",
+		"body": "GetID()",
+		"description": "(as String) Returns the app's channel ID, e.g. \"12345\" or \"dev\""
+	},
+	"ifAppInfo_IsDev": {
+		"prefix": "IsDev() :: ifAppInfo",
+		"body": "IsDev()",
+		"description": "(as Boolean) Returns true if the application is side-loaded, i.e. the channel ID is \"dev\""
+	},
+	"ifAppInfo_GetVersion": {
+		"prefix": "GetVersion() :: ifAppInfo",
+		"body": "GetVersion()",
+		"description": "(as String) Returns the conglomerate version number from the manifest, e.g. \"1.2.3\", as formatted major_version + minor_version + build_version."
+	},
+	"ifAppInfo_GetTitle": {
+		"prefix": "GetTitle() :: ifAppInfo",
+		"body": "GetTitle()",
+		"description": "(as String) Returns the title value from the manifest."
+	},
+	"ifAppInfo_GetSubtitle": {
+		"prefix": "GetSubtitle() :: ifAppInfo",
+		"body": "GetSubtitle()",
+		"description": "(as String) Returns the subtitle value from the manifest."
+	},
+	"ifAppInfo_GetDevID": {
+		"prefix": "GetDevID() :: ifAppInfo",
+		"body": "GetDevID()",
+		"description": "(as String) Returns the app's developer ID, or the keyed developer ID, if the application is side-loaded."
+	},
+	"ifAppInfo_GetValue": {
+		"prefix": "GetValue() :: ifAppInfo",
+		"body": "GetValue(${1:key as String})",
+		"description": "(as String) Returns the named manifest value, or an empty string if the entry is does not exist."
+	}
+
+	//ifAppManager
+
+}
