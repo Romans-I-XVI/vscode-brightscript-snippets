@@ -240,5 +240,27 @@
 		"prefix": "Silence() :: ifAudioGuide",
 		"body": "Silence(${1:duration as Integer})",
 		"description": "(as Integer) If Audio Guide is enabled, causes text to speech to continue to suppress any application background sound for the amount of time specified by duration (in milliseconds). This can be used to add clarity for longer spoken text that may have pauses that might otherwise allow application background sound to be heard. This method does nothing if Audio Guide is currently disabled."
-	}
+	},
+
+	//ifAudioMetadata
+	"ifAudioMetadata_SetUrl": {
+		"prefix": "SetUrl() :: ifAudioMetadata",
+		"body": "SetUrl(${1:url as String})",
+		"description": "(as Void) Sets the URL to the audio file. Only file URLs are initially supported."
+	},
+    "ifAudioMetadatad_GetTags": {
+		"prefix": "GetTags() :: ifAudioMetadata",
+		"body": "GetTags()",
+		"description": "(as Object) Returns an associative array that contains a simple set of tags that are common to most audio formats."
+	},
+    "ifAudioMetadata_GetAudioProperties": {
+		"prefix": "GetAudioProperties() :: ifAudioMetadata",
+		"body": "GetAudioProperties()",
+		"description": "(as Object) Returns an associative array with a simple set of audio properties. These are values which may involve reading a larger portion of the file and thus may take longer to retrieve than the tags."
+	},
+    "ifAudioMetadata_GetCoverArt": {
+		"prefix": "GetCoverArt() :: ifAudioMetadata",
+		"body": "GetCoverArt()",
+		"description": "(as Object) Returns the cover art if available. Returns an associative array with two entries: \"bytes\" and \"type\". \"bytes\" is an roByteArray containing the image data. \"type\" specifies the mime-type of the image which is almost always either \"image/jpeg\" or \"image/png\".  Looks for the picture designated as the cover art if there is more than one picture in the file. If there is no FrontCover picture then the first picture is used."
+	},
 }
