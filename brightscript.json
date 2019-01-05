@@ -223,5 +223,22 @@
 		"prefix": "Count() :: ifAssociativeArray",
 		"body": "Count()",
 		"description": "(as Integer) Returns the number of keys in the associative array."
+	},
+
+	//ifAudioGuide
+	"ifAudioGuide_Say": {
+		"prefix": "Say() :: ifAudioGuide",
+		"body": "Say(${1:text as String}, ${2:flushSpeech as Boolean}, ${3:dontRepeat as Boolean})",
+		"description": "(as Integer) Speaks the specified text string. This method does nothing if Audio Guide is currently disabled. This method returns an ID for the spoken string to notify observer callbacks about a specific spoken string. This ID can be used with roTextToSpeechEvent."
+	},
+	"ifAudioGuide_Flush": {
+		"prefix": "Flush() :: ifAudioGuide",
+		"body": "Flush()",
+		"description": "(as Void) Interrupts and stops any current text to speech spoken string, to be used when the application does not want the text to speech to continue. Note that this call is equivalent to roTextToSpeech.Flush(), and stops speech started using both roAudioGuide.Say() and roTextToSpeech.Say()."
+	},
+	"ifAudioGuide_Silence": {
+		"prefix": "Silence() :: ifAudioGuide",
+		"body": "Silence(${1:duration as Integer})",
+		"description": "(as Integer) If Audio Guide is enabled, causes text to speech to continue to suppress any application background sound for the amount of time specified by duration (in milliseconds). This can be used to add clarity for longer spoken text that may have pauses that might otherwise allow application background sound to be heard. This method does nothing if Audio Guide is currently disabled."
 	}
 }
