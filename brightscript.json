@@ -263,4 +263,62 @@
 		"body": "GetCoverArt()",
 		"description": "(as Object) Returns the cover art if available. Returns an associative array with two entries: \"bytes\" and \"type\". \"bytes\" is an roByteArray containing the image data. \"type\" specifies the mime-type of the image which is almost always either \"image/jpeg\" or \"image/png\".  Looks for the picture designated as the cover art if there is more than one picture in the file. If there is no FrontCover picture then the first picture is used."
 	},
+
+	//ifAudioPlayer
+	"ifAudioPlayer_SetContentList": {
+		"prefix": "SetContentList() :: ifAudioPlayer",
+		"body": "SetContentList(${1:contentList as Object})",
+		"description": "(as Void) Set the content list to be played by the Audio Player. The caller passes an Array of AssociativeArrays (Content Meta-Data objects) representing the information for each stream to be played. See Content Meta-Data for details on the attributes for each element in the array."
+	},
+    "ifAudioPlayer_AddContent": {
+		"prefix": "AddContent() :: ifAudioMetadata",
+		"body": "AddContent(${1:contentItem as Object})",
+		"description": "(as Void) Add a new ContentMetaData item to the content list for the Audio Player. The new item is added to the end of the content list."
+	},
+    "ifAudioPlayer_ClearContent": {
+		"prefix": "ClearContent() :: ifAudioMetadata",
+		"body": "ClearContent()",
+		"description": "(as Void) Clear the content list."
+	},
+    "ifAudioPlayer_Play": {
+		"prefix": "Play() :: ifAudioMetadata",
+		"body": "Play()",
+		"description": "(as Boolean) Put the Audio Player into play mode starting at the current item in the Content List. This will stop any currently playing content."
+	},
+    "ifAudioPlayer_Stop": {
+		"prefix": "Stop() :: ifAudioMetadata",
+		"body": "Stop()",
+		"description": "(as Boolean) Stop Audio Player from playing or pausing and cleanup."
+	},
+    "ifAudioPlayer_Pause": {
+		"prefix": "Pause() :: ifAudioMetadata",
+		"body": "Pause()",
+		"description": "(as Boolean) Put Audio Player into pause mode.  It is an error to Pause if player is not in play mode."
+	},
+    "ifAudioPlayer_Resume": {
+		"prefix": "Resume() :: ifAudioMetadata",
+		"body": "Resume()",
+		"description": "(as Boolean) Put Audio Player into play mode starting from the pause point.  It is an error to Resume if the player is not in pause mode."
+	},
+    "ifAudioPlayer_SetLoop": {
+		"prefix": "SetLoop() :: ifAudioMetadata",
+		"body": "SetLoop(${1:enable as Boolean})",
+		"description": "(as Void) Enable/disable the automatic replaying of the Content List.  When enabled, after playing the last item in the content list, the player begins playing the first item.  When disabled, after playing the last item in the content list, the player stops."
+	},
+    "ifAudioPlayer_SetNext": {
+		"prefix": "SetNext() :: ifAudioMetadata",
+		"body": "SetNext(${1:item as Integer})",
+		"description": "(as Void) Set what the next item to be played within the Content List should be.  item is the zero-based index of the item in the content list.  This item will be played after the currently playing item finishes."
+	},
+    "ifAudioPlayer_Seek": {
+		"prefix": "Seek() :: ifAudioMetadata",
+		"body": "Seek(${1:offsetMs as Integer})",
+		"description": "(as Boolean) Set the start point of playback for the current item to offsetMs milliseconds. If the item is currently playing, playback will be interrupted and will restart at the specified offset.  If the item is not currently playing, playback will begin at the specified offset when Play() is called."
+	},
+    "ifAudioPlayer_SetTimeMetaData": {
+		"prefix": "SetTimeMetaDataForKeys() :: ifAudioMetadata",
+		"body": "SetTimeMetaDataForKeys(${1:keys[] as Dynamic})",
+		"description": "(as Void) This method is called to specify the timedMetaData keys that the BrightScript channel is interested in receiving from the timedMetaData event.  If the keys array is empty, all the timed metadata associated with the current stream is sent with the isTimedMetaData event.  If the keys array is invalid, then do not return any keys to the BrightScript channel.  Any keys not specified with this method are deleted by the firmware and never returned to the BrightScript application."
+	}
+
 }
