@@ -166,5 +166,62 @@
 		"prefix": "Reverse() :: ifArraySort",
 		"body": "Reverse()",
 		"description": "(as Void) Reverses the order of elements in an array."
+	},
+
+	//ifAssociativeArray
+	"ifAssociativeArray_AddReplace": {
+		"prefix": "AddReplace() :: ifAssociativeArray",
+		"body": "AddReplace(${1:key as String}, ${2:value as Dynamic})",
+		"description": "(as Void) Add a new entry to the array associating the supplied value with the supplied key string. Only one value may be associated with a key.  If the key is already associated with a value, the existing value is discarded."
+	},
+    "ifAssociativeArray_Lookup": {
+		"prefix": "Lookup() :: ifAssociativeArray",
+		"body": "Lookup(${1:key as String})",
+		"description": "(as Dynamic) Return the value in the array associated with the specified key. If there is no value associated with the key then type \"invalid\" is returned.  Key comparison is case-insensitive, unless SetModeCaseSensitive() has been called."
+	},
+    "ifAssociativeArray_DoesExist": {
+		"prefix": "DoesExist() :: ifAssociativeArray",
+		"body": "DoesExist(${1:key as String})",
+		"description": "(as Boolean) Look for an entry in the array associated with the specified key. If there is no associated object then false is returned. If there is such an object then true is returned."
+	},
+    "ifAssociativeArray_Delete": {
+		"prefix": "Delete() :: ifAssociativeArray",
+		"body": "Delete(${1:key as String})",
+		"description": "(as Boolean) Look for an entry in the array associated with the specified key. If there is such an value then it is deleted and true is returned. If not then false is returned."
+	},
+    "ifAssociativeArray_Clear": {
+		"prefix": "Clear() :: ifAssociativeArray",
+		"body": "Clear()",
+		"description": "(as Void) Remove all key/values from the associative array."
+	},
+	"ifAssociativeArray_Keys": {
+		"prefix": "Keys() :: ifAssociativeArray",
+		"body": "Keys()",
+		"description": "(as Object) Returns an array containing the associative array keys in lexicographical order."
+	},
+	"ifAssociativeArray_Items": {
+		"prefix": "Items() :: ifAssociativeArray",
+		"body": "Items()",
+		"description": "(as Object) Returns an array containing the associative array key/value pairs in lexicographical order of key. Each item is in the returned array is an associative array with 'key' and 'value' fields."
+	},
+    "ifAssociativeArray_SetModeCaseSensitive": {
+		"prefix": "SetModeCaseSensitive() :: ifAssociativeArray",
+		"body": "SetModeCaseSensitive()",
+		"description": "(as Void) Associative Array lookups are case insensitive by default. This call makes all subsequent actions case sensitive."
+	},
+    "ifAssociativeArray_LookupCI": {
+		"prefix": "LookupCI() :: ifAssociativeArray",
+		"body": "LookupCI(${1:key as String})",
+		"description": "(as Dynamic) Same as \"Lookup\" except key comparison is always case insensitive, regardless of case mode."
+	},
+    "ifAssociativeArray_Append": {
+		"prefix": "Append() :: ifAssociativeArray",
+		"body": "Append(${1:aa as Object})",
+		"description": "(as Object) Append an AssociativeArray to this one.  If any key in aa is already associated with a value in this AssociativeArray, the current value is discarded and is replaced with the value in aa."
+	},
+    "ifAssociativeArray_Count": {
+		"prefix": "Count() :: ifAssociativeArray",
+		"body": "Count()",
+		"description": "(as Integer) Returns the number of keys in the associative array."
 	}
 }
