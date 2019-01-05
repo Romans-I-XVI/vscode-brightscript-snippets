@@ -75,11 +75,96 @@
 	"ifAppManager_SetAutomaticAudioGuideEnabled": {
 		"prefix": "SetAutomaticAudioGuideEnabled() :: ifAppManager",
 		"body": "SetAutomaticAudioGuideEnabled(${1:enabled as Boolean})",
-		"description": "Enables or disables automatic Audio Guide and override any manifest setting. This is useful for channels that want to temporarily turn off automatic Audio Guide for specific screens."
+		"description": "(as Void) Enables or disables automatic Audio Guide and override any manifest setting. This is useful for channels that want to temporarily turn off automatic Audio Guide for specific screens."
 	},
 	"ifAppManager_IsAppInstalled": {
 		"prefix": "IsAppInstalled() :: ifAppManager",
 		"body": "IsAppInstalled(${1:channelID as String}, ${2:version as String})",
-		"description": "This method returns true if a channel with the specified channelID and the minimum version required is installed. Version field could be an empty string to avoid a version check. This is useful for developers who want to cross-promote their apps. For example, if a developer writes a game A and an app B, in game A they would want to know if the user has app B installed so they know whether to advertise app B in game A to promote the app. If it is already installed, the developer would not need to advertise app B."
+		"description": "(as Boolean) This method returns true if a channel with the specified channelID and the minimum version required is installed. Version field could be an empty string to avoid a version check. This is useful for developers who want to cross-promote their apps. For example, if a developer writes a game A and an app B, in game A they would want to know if the user has app B installed so they know whether to advertise app B in game A to promote the app. If it is already installed, the developer would not need to advertise app B."
+	},
+
+	//ifArray
+	"ifArray_Peek": {
+		"prefix": "Peek() :: ifArray",
+		"body": "Peek()",
+		"description": "(as Dynamic) Returns the last (highest index) array entry without removing it.  If the array is empty, returns invalid."
+	},
+	"ifArray_Pop": {
+		"prefix": "Pop() :: ifArray",
+		"body": "Pop()",
+		"description": "(as Dynamic) Returns the last (highest index) array entry and removes it from the array.  If the array is empty, returns invalid and does not change the array."
+	},
+	"ifArray_Push": {
+		"prefix": "Push() :: ifArray",
+		"body": "Push(${1:tvalue as Dynamic})",
+		"description": "(as Void) Adds tvalue as the new highest index entry in the array (adds to the end of the array)."
+	},
+	"ifArray_Shift": {
+		"prefix": "Shift() :: ifArray",
+		"body": "Shift()",
+		"description": "(as Dynamic) Removes the index zero entry from the array and shifts every other entry down one to fill the hole. Returns the removed entry. This is like a Pop from the start of the array instead of the end."
+	},
+	"ifArray_Unshift": {
+		"prefix": "Unshift() :: ifArray",
+		"body": "Unshift(${1:tvalue as Dynamic})",
+		"description": "(as Void) Adds a new index zero to the array and shifts every other entry up one to accommodate. This is like a Push to the start of the array instead of the end."
+	},
+	"ifArray_Delete": {
+		"prefix": "Delete() :: ifArray",
+		"body": "Delete(${1:index as Integer})",
+		"description": "(as Boolean) Deletes the indicated array entry, and shifts down all entries above to fill the hole. The array length is decreased by one.  If the entry was successfully deleted, returns true.  If index is out of range, returns false and does not change the array."
+	},
+	"ifArray_Count": {
+		"prefix": "Count() :: ifArray",
+		"body": "Count()",
+		"description": "(as Integer) Returns the length of the array; that is, one more than the index of highest entry."
+	},
+	"ifArray_Clear": {
+		"prefix": "Clear() :: ifArray",
+		"body": "Clear()",
+		"description": "(as Void) Deletes every entry in the array."
+	},
+	"ifArray_Append": {
+		"prefix": "Append() :: ifArray",
+		"body": "Append(${1:array as Object})",
+		"description": "(as Void) Appends each entry of one roArray to another. If the passed Array contains \"holes\" (entries that were never set to a value), they are not appended."
+	},
+
+	//ifArrayGet
+	"ifArrayGet_GetEntry": {
+		"prefix": "GetEntry() :: ifArrayGet",
+		"body": "GetEntry(${1:index as Integer})",
+		"description": "(as Dynamic) Returns an Array entry of a given index. Entries start at zero. If an entry is fetched that has not been set, \"invalid\" is returned."
+	},
+
+	//ifArrayJoin
+	"ifArrayJoin_Join": {
+		"prefix": "Join() :: ifArrayJoin",
+		"body": "Join(${1:separator as String})",
+		"description": "(as String) Creates a string by joining all array elements together separated by the specified separator. All elements must be of type string, otherwise an empty string is returned."
+	},
+
+	//ifArraySet
+	"ifArraySet_SetEntry": {
+		"prefix": "SetEntry() :: ifArraySet",
+		"body": "SetEntry(${1:index as Integer}, ${2:tvalue as Dynamic})",
+		"description": "(as Void) Sets an entry at a given index to the passed value.  If index is beyond the bounds of the array, the array is expanded to accommodate it."
+	},
+
+	//ifArraySort
+	"ifArraySort_Sort": {
+		"prefix": "Sort() :: ifArraySort",
+		"body": "Sort(${1:flags as String = \"\"})",
+		"description": "(as Void) Performs a stable sort. Items are arbitrarily grouped by comparable type of number or string, and are sorted within the group with a logical comparison. If \"r\" is included in flags, a reverse sort is performed. If \"i\" is included in flags, a case-insensitive sort is performed. If invalid flags are specified, the sort is not performed."
+	},
+	"ifArraySort_SortBy": {
+		"prefix": "SortBy() :: ifArraySort",
+		"body": "SortBy(${1:fieldName as String}, ${2:flags as String = \"\"})",
+		"description": "(as Void) Performs a stable sort of an array of associative arrays by value of a common field. Items are arbitrarily grouped by comparable value type of number or string, and are sorted within the group with a logical comparison. If \"r\" is included in flags, a reverse sort is performed. If \"i\" is included in flags, a case-insensitive sort is performed. If invalid flags are specified, the sort is not performed."
+	},
+	"ifArraySort_Reverse": {
+		"prefix": "Reverse() :: ifArraySort",
+		"body": "Reverse()",
+		"description": "(as Void) Reverses the order of elements in an array."
 	}
 }
