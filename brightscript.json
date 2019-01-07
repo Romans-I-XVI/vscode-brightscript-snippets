@@ -325,27 +325,104 @@
 	"ifAudioResource_Trigger" : {
 		"prefix": "Trigger() :: ifAudioResource",
 		"body": "Trigger(${1:volume as Integer})",
-		"description": "This method triggers the start of the audio resource sound playback.  The volume is a number between 0 and 100 (percentage of full volume).  50 should be used for normal volume."
+		"description": "(as Void) This method triggers the start of the audio resource sound playback.  The volume is a number between 0 and 100 (percentage of full volume).  50 should be used for normal volume."
 	},
     "ifAudioResource_IsPlaying" : {
 		"prefix": "IsPlaying() :: ifAudioResource",
 		"body": "IsPlaying()",
-		"description": "Returns true if this audio resource is currently playing"
+		"description": "(as Boolean) Returns true if this audio resource is currently playing"
 	},
     "ifAudioResource_Stop" : {
 		"prefix": "Stop() :: ifAudioResource",
 		"body": "Stop()",
-		"description": "Stops playing the audio resource.  If the resource is not currently playing, has no effect."
+		"description": "(as Void) Stops playing the audio resource.  If the resource is not currently playing, has no effect."
 	},
     "ifAudioResource_MaxSimulStreams" : {
 		"prefix": "MaxSimulStreams() :: ifAudioResource",
 		"body": "MaxSimulStreams()",
-		"description": "Returns the maximum number of audio resources which can be played simultaneous.  Some Roku models support playing multiple resources and mix the output, others support playing only one stream at a time."
+		"description": "(as Integer) Returns the maximum number of audio resources which can be played simultaneous.  Some Roku models support playing multiple resources and mix the output, others support playing only one stream at a time."
 	},
     "ifAudioResource_GetMetaData" : {
 		"prefix": "GetMetaData() :: ifAudioResource",
 		"body": "GetMetaData()",
-		"description": "Returns an roAssociativeArray array containing the following meta data parameters about the audio resource.  All values are integers."
-	}
+		"description": "(as Object) Returns an roAssociativeArray array containing the following meta data parameters about the audio resource.  All values are integers."
+	},
+
+	//ifByteArray
+	"ifByteArray_WriteFile": {
+		"prefix": "WriteFile() :: ifByteArray",
+		"body": "WriteFile(${1:path as String}${2:, [start_index as Integer]}${3:, [length as Integer]})",
+		"description": "(as Boolean) Writes the bytes contained in the Byte Array to the specified file. Returns true if successful."
+	},
+    "ifByteArray_ReadFile": {
+		"prefix": "ReadFile() :: ifByteArray",
+		"body": "ReadFile(${1:path as String}${2:, [start_pos as Integer]}${3:, [length as Integer]})",
+		"description": "(as Boolean) Reads the specified file into the Byte Array. Any data currently in the Byte Array is discarded. Returns true if successful."
+	},
+    "ifByteArray_AppendFile": {
+		"prefix": "AppendFile() :: ifByteArray",
+		"body": "AppendFile(${1:path as String})",
+		"description": "(as Boolean) Appends the contents of the Byte Array to the specified file. Returns true if successful."
+	},
+    "ifByteArray_SetResize": {
+		"prefix": "SetResize() :: ifByteArray",
+		"body": "SetResize(${1:min_size as Integer}, ${2:auto_resize as Boolean})",
+		"description": "(as Void) If the size of the Byte Array is less than min_size, expands the Byte Array to min_size. Also sets the auto-resize attribute of the Byte Array to the specified value."
+	},
+    "ifByteArray_ToHexString": {
+		"prefix": "ToHexString() :: ifByteArray",
+		"body": "ToHexString()",
+		"description": "(as String) Returns a hexadecimal string representing the contents of the Byte Array, two digits per byte."
+	},
+    "ifByteArray_FromHexString": {
+		"prefix": "FromHexString() :: ifByteArray",
+		"body": "FromHexString(${1:hexstring as String})",
+		"description": "(as Void) Sets the contents of the Byte Array to the specified value. The string must be an even number of hexadecimal digits. The string must contain valid hexadecimal digits, or the result is undefined. Any data currently in the Byte Array is discarded."
+	},
+    "ifByteArray_ToBase64String": {
+		"prefix": "ToBase64String() :: ifByteArray",
+		"body": "ToBase64String()",
+		"description": "(as String) Returns a base-64 string representing the contents of the Byte Array."
+	},
+    "ifByteArray_FromBase64String": {
+		"prefix": "FromBase64String() :: ifByteArray",
+		"body": "FromBase64String(${1:s as String})",
+		"description": "(as Void) Sets the contents of the Byte Array to the specified value. The string must be a valid base-64 encoding. Any data currently in the Byte Array is discarded."
+	},
+    "ifByteArray_ToAsciiString": {
+		"prefix": "ToAsciiString() :: ifByteArray",
+		"body": "ToAsciiString()",
+		"description": "(as String) Returns the contents of the Byte Array as a string. The contents must be valid UTF-8 (or ASCII subset), or the result is undefined."
+	},
+    "ifByteArray_FromAsciiString": {
+		"prefix": "FromAsciiString() :: ifByteArray",
+		"body": "FromAsciiString(${1:s as String})",
+		"description": "(as Void) Sets the contents of the Byte Array to the specified string using UTF-8 encoding. Any data currently in the Byte Array is discarded."
+	},
+    "ifByteArray_GetSignedByte": {
+		"prefix": "GetSignedByte() :: ifByteArray",
+		"body": "GetSignedByte(${1:index as Integer})",
+		"description": "(as Integer) Returns the signed byte at the specified zero-based index in the Byte Array. Use ifArrayGet.GetEntry() or the [ ] array operator to read an unsigned byte in the Byte Array."
+	},
+    "ifByteArray_GetSignedLong": {
+		"prefix": "GetSignedLong() :: ifByteArray",
+		"body": "GetSignedLong(${1:index as Integer})",
+		"description": "(as Integer) Returns the signed long (four bytes) starting at the specified zero-based index in the Byte Array."
+	},
+	"ifByteArray_GetCRC32": {
+		"prefix": "GetCRC32() :: ifByteArray",
+		"body": "GetCRC32()",
+		"description": "(as Integer) Calculates a CRC-32 of the contents of the Byte Array."
+	},
+	"ifByteArray_GetCRC32_2": {
+		"prefix": "GetCRC32() :: ifByteArray",
+		"body": "GetCRC32(${1:start as Integer}, ${2:length as Integer})",
+		"description": "(as Integer) Calculates a CRC-32 of the contents of the Byte Array."
+	},
+    "ifByteArray_IsLittleEndianCPU": {
+		"prefix": "IsLittleEndianCPU() :: ifByteArray",
+		"body": "IsLittleEndianCPU()",
+		"description": "(as Boolean) Returns true if the CPU architecture is little-endian."
+	},
 
 }
