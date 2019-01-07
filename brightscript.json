@@ -319,6 +319,33 @@
 		"prefix": "SetTimeMetaDataForKeys() :: ifAudioMetadata",
 		"body": "SetTimeMetaDataForKeys(${1:keys[] as Dynamic})",
 		"description": "(as Void) This method is called to specify the timedMetaData keys that the BrightScript channel is interested in receiving from the timedMetaData event.  If the keys array is empty, all the timed metadata associated with the current stream is sent with the isTimedMetaData event.  If the keys array is invalid, then do not return any keys to the BrightScript channel.  Any keys not specified with this method are deleted by the firmware and never returned to the BrightScript application."
+	},
+
+	//ifAudioResource
+	"ifAudioResource_Trigger" : {
+		"prefix": "Trigger() :: ifAudioResource",
+		"body": "Trigger(${1:volume as Integer})",
+		"description": "This method triggers the start of the audio resource sound playback.  The volume is a number between 0 and 100 (percentage of full volume).  50 should be used for normal volume."
+	},
+    "ifAudioResource_IsPlaying" : {
+		"prefix": "IsPlaying() :: ifAudioResource",
+		"body": "IsPlaying()",
+		"description": "Returns true if this audio resource is currently playing"
+	},
+    "ifAudioResource_Stop" : {
+		"prefix": "Stop() :: ifAudioResource",
+		"body": "Stop()",
+		"description": "Stops playing the audio resource.  If the resource is not currently playing, has no effect."
+	},
+    "ifAudioResource_MaxSimulStreams" : {
+		"prefix": "MaxSimulStreams() :: ifAudioResource",
+		"body": "MaxSimulStreams()",
+		"description": "Returns the maximum number of audio resources which can be played simultaneous.  Some Roku models support playing multiple resources and mix the output, others support playing only one stream at a time."
+	},
+    "ifAudioResource_GetMetaData" : {
+		"prefix": "GetMetaData() :: ifAudioResource",
+		"body": "GetMetaData()",
+		"description": "Returns an roAssociativeArray array containing the following meta data parameters about the audio resource.  All values are integers."
 	}
 
 }
