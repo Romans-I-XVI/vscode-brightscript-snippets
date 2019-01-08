@@ -542,6 +542,102 @@
 		"prefix": "ChangeMatchingRegions() :: ifCompositor",
 		"body": "ChangeMatchingRegions(${1:oldRegion as Object}, ${2:newRegion as Object})",
 		"description": "(as Void) Global search and replace of Sprite roRegions. Replaces regions that match oldRegion with newRegion."
-	}
+	},
 	
+	//ifDateTime
+	"ifDateTime_Mark": {
+		"prefix": "Mark() :: ifDateTime",
+		"body": "Mark()",
+		"description": "(as Void) Set the date/time value to the current UTC date and time. Note: roDateTime objects are automatically Marked on creation."
+	},
+    "ifDateTime_ToLocalTime": {
+		"prefix": "ToLocalTime() :: ifDateTime",
+		"body": "ToLocalTime()",
+		"description": "(as Void) Offsets the date/time value from an assumed UTC date/time to a local date/time using the system time zone setting."
+	},
+    "ifDateTime_GetTimeZoneOffset": {
+		"prefix": "GetTimeZoneOffset() :: ifDateTime",
+		"body": "GetTimeZoneOffset()",
+		"description": "(as Integer) Returns the offset in minutes from the system time zone to UTC."
+	},
+    "ifDateTime_AsSeconds": {
+		"prefix": "AsSeconds() :: ifDateTime",
+		"body": "AsSeconds()",
+		"description": "(as Integer) Returns the date/time as the number of seconds from the Unix epoch (00:00:00 1/1/1970 GMT)."
+	},
+    "ifDateTime_FromSeconds": {
+		"prefix": "FromSeconds() :: ifDateTime",
+		"body": "FromSeconds(${1:numSeconds as Integer})",
+		"description": "(as Void) Set the date/time value using the number of seconds from the Unix epoch."
+	},
+    "ifDateTime_ToISOString": {
+		"prefix": "ToISOString() :: ifDateTime",
+		"body": "ToISOString()",
+		"description": "(as String) Return an ISO 8601 representation of the date/time value, e.g. \"2015-01-27T13:21:58Z\"."
+	},
+    "ifDateTime_FromISO8601String": {
+		"prefix": "FromISO8601String() :: ifDateTime",
+		"body": "FromISO8601String(${1:dateString as String})",
+		"description": "(as Void) Set the date/time using a string in the ISO 8601 format. For example \"YYYY-MM-DD HH:MM:SS\" e.g \"2009-01-01 01:00:00.000\" or \"2009-01-01T01:00:00.000\". Note that this function is unaware of the local time zone, so these time formats are effectively UTC even though the ISO 8601 spec says they should be in local time. The above formats are also the only formats recognized by this function, even though the ISO 8601 spec contains other valid formats."
+	},
+    "ifDateTime_AsDateString": {
+		"prefix": "AsDateString() :: ifDateTime",
+		"body": "AsDateString(${1:format as String})",
+		"description": "(as String) Returns the date/time as a formatted string in one of the following formats:\nlong-date | Tuesday October 9, 2012\nshort-weekday | Tue October 9, 2012\nno-weekday | October 9, 2012\nshort-month | Tuesday Oct 9, 2012\nshort-month-short-weekday | Tue Oct 9, 2012\nshort-month-no-weekday | Oct 9, 2012\nshort-date | 10/9/12\nshort-date-dashes | 10-9-12\n"
+	},
+    "ifDateTime_AsDateStringNoParam": {
+		"prefix": "AsDateStringNoParam() :: ifDateTime",
+		"body": "AsDateStringNoParam()",
+		"description": "(as String) Same as AsDateString(\"long-date\")."
+	},
+    "ifDateTime_GetWeekday": {
+		"prefix": "GetWeekday() :: ifDateTime",
+		"body": "GetWeekday()",
+		"description": "(as String) Returns the day of the week as a String (e.g. \"Monday\")."
+	},
+    "ifDateTime_GetYear": {
+		"prefix": "GetYear() :: ifDateTime",
+		"body": "GetYear()",
+		"description": "(as Integer) Returns the date/time value's year as an Integer, e.g. 2015."
+	},
+    "ifDateTime_GetMonth": {
+		"prefix": "GetMonth() :: ifDateTime",
+		"body": "GetMonth()",
+		"description": "(as Integer) Returns the date/time value's month as an Integer (1=Jan, 12=Dec)."
+	},
+    "ifDateTime_GetDayOfMonth": {
+		"prefix": "GetDayOfMonth() :: ifDateTime",
+		"body": "GetDayOfMonth()",
+		"description": "(as Integer) Returns the date/time value's day of the month as an Integer (1-31)."
+	},
+    "ifDateTime_GetHours": {
+		"prefix": "GetHours() :: ifDateTime",
+		"body": "GetHours()",
+		"description": "(as Integer) Returns the date/time value's hour within the day as an Integer (0-23)."
+	},
+    "ifDateTime_GetMinutes": {
+		"prefix": "GetMinutes() :: ifDateTime",
+		"body": "GetMinutes()",
+		"description": "(as Integer) Returns the date/time value's minute within the hour as an Integer (0-59)."
+	},
+    "ifDateTime_GetSeconds": {
+		"prefix": "GetSeconds() :: ifDateTime",
+		"body": "GetSeconds()",
+		"description": "(as Integer) Returns the date/time value's second within the minute as an Integer (0-59)."
+	},
+    "ifDateTime_GetMilliseconds": {
+		"prefix": "GetMilliseconds() :: ifDateTime",
+		"body": "GetMilliseconds()",
+		"description": "(as Integer) Returns the date/time value's millisecond within the second as an Integer (0-999)."
+	},
+    "ifDateTime_GetLastDayOfMonth": {
+		"prefix": "GetLastDayOfMonth() :: ifDateTime",
+		"body": "GetLastDayOfMonth()",
+		"description": "(as Integer) Returns the date/time value's last day of the month as an Integer (28-31)."
+	},
+    "ifDateTime_GetDayOfWeek": {
+		"prefix": "GetDayOfWeek() :: ifDateTime",
+		"body": "GetDayOfWeek()",
+		"description": "(as Integer) Returns the date/time value's day of week as an Integer (Sunday=0, Monday=1, ..., Saturday=6)."
+	}
 }
