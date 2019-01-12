@@ -582,7 +582,7 @@
 	},
 	"ifDateTime_AsDateString": {
 		"prefix": "AsDateString() :: ifDateTime",
-		"body": "AsDateString(${1:format as String})",
+		"body": "AsDateString(${1|\"long-date\",\"short-weekday\",\"no-weekday\",\"short-month\",\"short-month-short-weekday\",\"short-month-no-weekday\",\"short-date\",\"short-date-dashes\"|})",
 		"description": "(as String) Returns the date/time as a formatted string in one of the following formats:\nlong-date | Tuesday October 9, 2012\nshort-weekday | Tue October 9, 2012\nno-weekday | October 9, 2012\nshort-month | Tuesday Oct 9, 2012\nshort-month-short-weekday | Tue Oct 9, 2012\nshort-month-no-weekday | Oct 9, 2012\nshort-date | 10/9/12\nshort-date-dashes | 10-9-12\n"
 	},
 	"ifDateTime_AsDateStringNoParam": {
@@ -639,6 +639,162 @@
 		"prefix": "GetDayOfWeek() :: ifDateTime",
 		"body": "GetDayOfWeek()",
 		"description": "(as Integer) Returns the date/time value's day of week as an Integer (Sunday=0, Monday=1, ..., Saturday=6)."
-	}
+	},
 
+	//ifDeviceInfo
+	"ifDeviceInfo_GetModel": {
+		"prefix": "GetModel() :: ifDeviceInfo",
+		"body": "GetModel()",
+		"description": "(as String) Returns the model name for the Roku Streaming Player device running the script. This is a five-character alphanumeric string; for example, \"3050X\". Please see Roku Models and Features of the Developer Guide for a list of the current and classic models."
+	},
+	"ifDeviceInfo_GetModelDisplayName": {
+		"prefix": "GetModelDisplayName() :: ifDeviceInfo",
+		"body": "GetModelDisplayName()",
+		"description": "(as String) Returns the model display name for the Roku Streaming Player device running the script (for example, \"Roku 2 XD\")."
+	},
+	"ifDeviceInfo_GetModelType": {
+		"prefix": "GetModelType() :: ifDeviceInfo",
+		"body": "GetModelType()",
+		"description": "(as String) Returns a string describing what type of device it is. For future compatibility, the caller should by default assume \"STB\" when anything other than described value is returned. Current possible values are:\n\"STB\" | Set-top box type device.\n\"TV\" | Roku TV type device."
+	},
+	"ifDeviceInfo_GetModelDetails": {
+		"prefix": "GetModelDetails() :: ifDeviceInfo",
+		"body": "GetModelDetails()",
+		"description": "(as Object) Returns an associative array containing more information about the device model. The following keys are defined:\nVendorName | string describing model vendor\nModelNumber | string describing model number"
+	},
+	"ifDeviceInfo_GetFriendlyName": {
+		"prefix": "GetFriendlyName() :: ifDeviceInfo",
+		"body": "GetFriendlyName()",
+		"description": "(as String) Returns a string describing the device that may be used for network device selection. The string may be a user-assigned device name or a description of the device such as model name and/or serial number. The string is subject to change and should not be used as a persistent key or ID."
+	},
+	"ifDeviceInfo_GetVersion": {
+		"prefix": "GetVersion() :: ifDeviceInfo",
+		"body": "GetVersion()",
+		"description": "(as String) Returns the version number of the Roku Streaming Player firmware running on the device. This is a 13 character string; for example \"034.08E01185A\".  The third through sixth characters are the major/minor version number (\"4.08\") and the ninth through twelfth are the build number (\"1185\")."
+	},
+	"ifDeviceInfo_GetRIDA": {
+		"prefix": "GetRIDA() :: ifDeviceInfo",
+		"body": "GetRIDA()",
+		"description": "(as String) Returns a unique identifier of the unit running the script. The string returned is a Universally Unique Identifier (UUID). This identifier is persistent but can be reset by the user from the device's Settings menu or by performing a factory reset on the device. If the user has set \"Limit ad tracking\" (RIDA is disabled) from the Settings menu, then this identifier should not be used for targeted advertising. Additionally, if the viewer’s country is an EU member country, any data collection must be compliant with the EU General Data Protection Regulation. IsRIDADisabled() should be called to check if the user has disabled RIDA tracking and GetUserCountryCode() should be called to check the user’s country."
+	},
+	"ifDeviceInfo_IsRIDADisabled": {
+		"prefix": "IsRIDADisabled() :: ifDeviceInfo",
+		"body": "IsRIDADisabled()",
+		"description": "(as Boolean) Returns True if the user has disabled RIDA tracking by selecting \"Limit tracking\" from the Roku Settings menu."
+	},
+	"ifDeviceInfo_GetPublisherId": {
+		"prefix": "GetPublisherId() :: ifDeviceInfo",
+		"body": "GetPublisherId()",
+		"description": "(as String) "
+	},
+	"ifDeviceInfo_GetRandomUUID": {
+		"prefix": "GetRandomUUID() :: ifDeviceInfo",
+		"body": "GetRandomUUID()",
+		"description": "(as String) "
+	},
+	"ifDeviceInfo_GetDisplayType": {
+		"prefix": "GetDisplayType() :: ifDeviceInfo",
+		"body": "GetDisplayType()",
+		"description": "(as String) "
+	},
+	"ifDeviceInfo_GetDisplayMode": {
+		"prefix": "GetDisplayMode() :: ifDeviceInfo",
+		"body": "GetDisplayMode()",
+		"description": "(as String) "
+	},
+	"ifDeviceInfo_GetDisplayAspectRation": {
+		"prefix": "GetDisplayAspectRation() :: ifDeviceInfo",
+		"body": "GetDisplayAspectRation()",
+		"description": "(as String) "
+	},
+	"ifDeviceInfo_GetDisplaySize": {
+		"prefix": "GetDisplaySize() :: ifDeviceInfo",
+		"body": "GetDisplaySize()",
+		"description": "(as Object) "
+	},
+	"ifDeviceInfo_GetTimeZone": {
+		"prefix": "GetTimeZone() :: ifDeviceInfo",
+		"body": "GetTimeZone()",
+		"description": "(as String) "
+	},
+	"ifDeviceInfo_HasFeature": {
+		"prefix": "HasFeature() :: ifDeviceInfo",
+		"body": "HasFeature(${1:feature as String})",
+		"description": "(as Boolean) "
+	},
+	"ifDeviceInfo_GetIPAddrs": {
+		"prefix": "GetIPAddrs() :: ifDeviceInfo",
+		"body": "GetIPAddrs()",
+		"description": "(as Object) "
+	},
+	"ifDeviceInfo_GetCurrentLocale": {
+		"prefix": "GetCurrentLocale() :: ifDeviceInfo",
+		"body": "GetCurrentLocale()",
+		"description": "(as String) "
+	},
+	"ifDeviceInfo_GetCountryCode": {
+		"prefix": "GetCountryCode() :: ifDeviceInfo",
+		"body": "GetCountryCode()",
+		"description": "(as String) "
+	},
+	"ifDeviceInfo_TimeSinceLastKeypress": {
+		"prefix": "TimeSinceLastKeypress() :: ifDeviceInfo",
+		"body": "TimeSinceLastKeypress()",
+		"description": "(as Integer) "
+	},
+	"ifDeviceInfo_GetVideoMode": {
+		"prefix": "GetVideoMode() :: ifDeviceInfo",
+		"body": "GetVideoMode()",
+		"description": "(as String) "
+	},
+	"ifDeviceInfo_IsHDMIConnected": {
+		"prefix": "IsHDMIConnected() :: ifDeviceInfo",
+		"body": "IsHDMIConnected()",
+		"description": "(as Boolean) "
+	},
+	"ifDeviceInfo_GetAudioOutputChannel": {
+		"prefix": "GetAudioOutputChannel() :: ifDeviceInfo",
+		"body": "GetAudioOutputChannel()",
+		"description": "(as String) "
+	},
+	"ifDeviceInfo_GetLinkStatus": {
+		"prefix": "GetLinkStatus() :: ifDeviceInfo",
+		"body": "GetLinkStatus()",
+		"description": "(as Boolean) "
+	},
+	"ifDeviceInfo_EnableLinkStatusEvent": {
+		"prefix": "EnableLinkStatusEvent() :: ifDeviceInfo",
+		"body": "EnableLinkStatusEvent(${1:enable as Boolean})",
+		"description": "(as Boolean) "
+	},
+	"ifDeviceInfo_GetCaptionsMode": {
+		"prefix": "GetCaptionsMode() :: ifDeviceInfo",
+		"body": "GetCaptionsMode()",
+		"description": "(as String) "
+	},
+	"ifDeviceInfo_GetCaptionsOption": {
+		"prefix": "GetCaptionsOption() :: ifDeviceInfo",
+		"body": "GetCaptionsOption(${1:option as String})",
+		"description": "(as String) "
+	},
+	"ifDeviceInfo_GetConnectionType": {
+		"prefix": "GetConnectionType() :: ifDeviceInfo",
+		"body": "GetConnectionType()",
+		"description": "(as String) "
+	},
+	"ifDeviceInfo_GetConnectionInfo": {
+		"prefix": "GetConnectionInfo() :: ifDeviceInfo",
+		"body": "GetConnectionInfo()",
+		"description": "(as Object) "
+	},
+	"ifDeviceInfo_GetAudioDecodeInfo": {
+		"prefix": "GetAudioDecodeInfo() :: ifDeviceInfo",
+		"body": "GetAudioDecodeInfo()",
+		"description": "(as Object) "
+	},
+	"ifDeviceInfo_GetVideoDecodeInfo": {
+		"prefix": "GetVideoDecodeInfo() :: ifDeviceInfo",
+		"body": "GetVideoDecodeInfo()",
+		"description": "(as Object) "
+	},
 }
